@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "estoque-curso": {
+      "hosting": {
+        "estoque": [
+          "estoque-curso"
+        ]
+      }
+    }
+  }
+}

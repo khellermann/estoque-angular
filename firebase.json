@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "estoque",
+      "public": "dist/estoque",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}
