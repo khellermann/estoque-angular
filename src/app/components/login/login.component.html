@@ -1,28 +1,45 @@
-<div class="container">
-<div class="row">
-    <div class="col-lg-5 mx-auto">
-        <div class="card">
-            <h3 class="card-title text-center">
-                Estoque
-            </h3>
-            <div class="form-group">
-                <label>Email</label>
-                <input type="text" [(ngModel)]="email" placeholder="Informe um email">                
-            </div>
-            <div class="form-group">
-                <label>Senha</label>
-                <input type="password" [(ngModel)]="senha">                
-            </div>
+
+<div class="fundo">
+
+  <br><br><br>
+  <div class="container" >
+    <div class="row justify-content-md-center align-items-center">
+      <div class="col-md-5">
+        <div style="border-radius: 15px; border:none" class=" fundo">
+          <div style="vertical-align: middle">
+            <h3 style="border-radius: 25px" class="card-header bg-dark text-white">
+              <i class="fas fa-fire"></i> Estoque FIRE</h3>
+          </div>
+          <br>
+          <div class="card-block">
+            <form #userForm="ngForm">
+              <fieldset>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email</label>
+                  <input class="form-control" #emailElement #emailControl="ngModel" type="text" placeholder="Informe o Email" [(ngModel)]="email"
+                    name="email" maxlength="60" email required>
+                  <span [hidden]="emailControl.pristine || !emailControl.errors?.required" class="text-danger">Email é obrigatório!</span>
+                  <span [hidden]="emailControl.pristine || !emailControl.errors?.email" class="text-danger">Email inválido!</span>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Senha</label>
+                  <input name="password" #passwordElement #passwordControl="ngModel" [(ngModel)]="senha" type="password" class="form-control"
+                    id="exampleInputPassword1" placeholder="Senha" required minlength="6" maxlength="30">
+                  <span [hidden]="passwordControl.pristine || !passwordControl.errors?.required" class="text-danger">Senha é obrigatório!</span>
+                </div>
+                <div class="text-center">
+                  <button type="submit" class="btn btn-success" (click)="login()">
+                    <i class="fas fa-sign-in-alt"></i> Logar</button>
+                </div>
+              </fieldset>
+
+              <div *ngIf="msg">
+                {{msg}}
+              </div>
+            </form>
+          </div>
         </div>
-
-        <div class="text-center">
-            <button type="submit" (click)="teste()" class="btn btn-info btn-block">
-                LOGAR
-            </button>
-
-        </div>
-
+      </div>
     </div>
-</div>
-
+  </div>
 </div>
